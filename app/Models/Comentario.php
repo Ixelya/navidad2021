@@ -16,9 +16,9 @@ class Comentario extends Model
         return $this->belongsTo(Pelicula::class);
     }
 
-    public function usuario()
+    public function user()
     {
-        return $this->belongsTo(Usuario::class);
+        return $this->belongsTo(User::class);
     }
 
 }

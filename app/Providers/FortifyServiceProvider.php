@@ -47,39 +47,20 @@ class FortifyServiceProvider extends ServiceProvider
             return view('auth.login');
         });
 
-        RateLimiter::for('login', function (Request $request) {
-            $email = (string) $request->email;
-
-            return Limit::perMinute(5)->by($email.$request->ip());
+        Fortify::registerView(function () {
+            return view('auth.register');
         });
 
-        RateLimiter::for('two-factor', function (Request $request) {
-            return Limit::perMinute(5)->by($request->session()->get('login.id'));
+        Fortify::requestPasswordResetLinkView(function () {
+            return view('auth.password.email');
         });
 
-        Fortify::authenticateUsing(function (Request $request) {
-            $user = User::where('email', $request->email)->first();
-    
-            if ($user &&
-                Hash::check($request->password, $user->password)) {
-                return $user;
-            }
+        Fortify::resetPasswordView(function ($request) {
+            return view('auth.passwords.reset', ['request' => $request]);
         });
-
-        Fortify::authenticateThrough(function (Request $request) {
-            return array_filter([
-                    config('fortify.limiters.login') ? null : EnsureLoginIsNotThrottled::class,
-                    Features::enabled(Features::twoFactorAuthentication()) ? RedirectIfTwoFactorAuthenticatable::class : null,
-                    AttemptToAuthenticate::class,
-                    PrepareAuthenticatedSession::class,
-            ]);
-        });
-
-        $this->app->instance(LogoutResponse::class, new class implements LogoutResponse {
-            public function toResponse($request)
-            {
-                return redirect('/');
-            }
+        
+        Fortify::verifyEmailView(function () {
+            return view('auth.verify');
         });
         
     }

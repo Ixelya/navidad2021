@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\Comentario;
 use App\Models\Pelicula;
 use App\Models\Usuario;
+use App\Models\User;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 

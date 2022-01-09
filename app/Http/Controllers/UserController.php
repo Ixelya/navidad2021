@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Usuario;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class UsuarioController extends Controller
+class UserController extends Controller
 {
     public function index()
     {
-        $usuarios = Usuario::all();
+        $usuarios = User::all();
         return view('usuarios.index', compact('usuarios'));
     }
 
@@ -20,30 +20,30 @@ class UsuarioController extends Controller
 
     public function store(Request $request)
     {
-        Usuario::create($request->all());
+        User::create($request->all());
         return redirect()->route('usuarios.index');
     }
 
-    public function show(Usuario $usuario)
+    public function show(User $user)
     {
     }
 
-    public function edit(Usuario $usuario)
+    public function edit(User $user)
     {
-        $usuarios = Usuario::find($usuario->id);
+        $users = User::find($user->id);
         return view('usuarios.edit', compact('usuarios'));
     }
 
-    public function update(Request $request, Usuario $usuario)
+    public function update(Request $request, Users $user)
     {
-        $usuario = Usuario::find($usuario->id);
-        $usuario->update($request->all());
+        $user = User::find($user->id);
+        $user->update($request->all());
         return redirect('/usuarios');
     }
 
-    public function destroy(Usuario $usuario)
+    public function destroy(User $user)
     {
-        Usuario::find($usuario->id)->delete();
+        User::find($user->id)->delete();
         return redirect()->route('usuarios.index');
     }
 }

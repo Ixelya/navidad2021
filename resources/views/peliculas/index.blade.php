@@ -42,9 +42,10 @@
     @if(count($peliculas)>0)
         @foreach($peliculas as $pelicula)
             <div class="card" data-id='{{$pelicula->id}}'>
-                <img class="card-img-pelicula" src='{{$pelicula->imagen}}' alt="Card image cap">
+            <a href="/perfilpelicula"><img class="card-img-pelicula" src='{{$pelicula->imagen}}' alt="Card image cap"></a>
                 <div class="card-body">
-                    <h5 class="card-title">{{$pelicula->titulo}}</h5>
+                    <a href="/perfilpelicula"><h5 class="card-title">{{$pelicula->titulo}}</h5></a>
+                    
                     <a href="{{url('/peliculas')}}/{{$pelicula->id}}/edit" class="btn btn-warning">Editar</a><a href="#" class='btn btn-danger borrar'>Borrar</a>
                 </div>
             </div>

@@ -21,11 +21,13 @@ width:100%;
 height: 10%;
 }
 #aside{
+margin-top: 5%;
 height: 70%;
 float: left;
 }
 #contenido{
 margin-top: 5%;
+margin-bottom: 4%;
 width: 90%;
 height: 95%;
 float: right;
@@ -141,7 +143,6 @@ z-index:101; /*Para que la barra se quede fija*/
 .cuerporec{
 background: #9a8dc9; /*Color de fondo de la barra*/
 height: 100%;
-margin-top: 33%;
 }
 .cuerporec li a {
 color:#ffffff; /*Color de las letras de las pestañas*/

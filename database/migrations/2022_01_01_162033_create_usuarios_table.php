@@ -15,6 +15,7 @@ class CreateUsuariosTable extends Migration
             $table->string('user_name',40)->unique();
             $table->string('email',100)->unique();
             $table->string('contraseña');
+            $table->string('imagen')->default('not_found.png');
         });
     }
 

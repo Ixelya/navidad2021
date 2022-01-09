@@ -57,7 +57,7 @@
                     @yield("contenido")
                 </div>
             </div>
-            <div id="barrainferior"></div>
+            <div id="barrainferior">@include("layouts/opipelis/footer")</div>
         </div>
         
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

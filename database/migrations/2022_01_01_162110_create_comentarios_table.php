@@ -13,8 +13,8 @@ class CreateComentariosTable extends Migration
             $table->string('comentario');
             $table->unsignedBigInteger('id_pelicula');
             $table->foreign('id_pelicula')->references('id')->on('peliculas')->onDelete('cascade');
-            $table->unsignedBigInteger('id_usuario');
-            $table->foreign('id_usuario')->references('id')->on('usuarios')->onDelete('cascade');
+            $table->unsignedBigInteger('id_user');
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
