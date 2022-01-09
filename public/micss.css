@@ -1,0 +1,202 @@
+/***** Forma *****/
+*{
+margin: 0;
+padding: 0;    
+}
+#contenedor1{
+width: 100%;
+height: 100%;
+margin: 0 auto;
+padding: 0;
+}
+#barrasuperior{
+width:100%;
+height: 15%;
+}
+#contenedor2{
+height: 70%;
+}
+#barrainferior{
+width:100%;
+height: 10%;
+}
+#aside{
+height: 70%;
+float: left;
+}
+#contenido{
+margin-top: 5%;
+width: 90%;
+height: 95%;
+float: right;
+}
+
+/***** Body *****/
+body {
+background-image: url('https://www.solofondos.com/wp-content/uploads/2015/11/21omxpw.jpg');
+background-attachment: fixed;
+}
+body::-webkit-scrollbar {
+width: 12px;               /* width of the entire scrollbar */
+}
+body::-webkit-scrollbar-track {
+background: orange;        /* color of the tracking area */
+}
+body::-webkit-scrollbar-thumb {
+background-color: #c98dc6;    /* color of the scroll thumb */
+border-radius: 20px;       /* roundness of the scroll thumb */
+border: 3px solid #8db7c9;  /* creates padding around scroll thumb */
+}
+
+/***** Barra Superior *****/
+#barra-superior {
+width:100%;
+background: #8db7c9; /*Color de fondo de la barra*/
+position:fixed; /*Para que la barra se quede fija*/
+z-index:101; /*Para que la barra se quede fija*/
+}
+#barra-superior ul {
+list-style-type: none;
+padding-left: 10% ;
+}
+ul, ol {
+list-style:none;
+}
+.menu > li {
+float: left;
+}
+.menu{
+margin: 0 auto;
+}
+.menu li a {
+color:#ffffff; /*Color de las letras de las pestañas*/
+font:normal normal 17px Arial; /*Tamaño y tipografía de las pestañas*/
+text-decoration:none;
+padding:20px 15px;
+display:block;
+cursor:pointer;
+}
+.menu li a:hover {
+color: #2a1fc6; /*Color de las pestañas al pasar el ratón por encima*/
+}
+.menu li i{ /*Esto es para los iconos sociales, si no los tenéis borrad este bloque*/
+color: #ffffff; /*Color de los iconos sociales*/
+font-size: 16px; /*Tamaño de los iconos sociales*/
+padding:0px 10px;
+}
+.menu li i:hover{ /*Esto es para los iconos sociales, si no los tenéis borrad este bloque*/
+color: #2a1fc6;  /*Color de los iconos sociales al pasar por encima*/
+}
+.menu li ul {
+background-color: #ffffff; /*Color de fondo de las subpestañas*/
+display:none;
+position:absolute;
+min-width:140px;
+color: #dac7c3; /*Color de las letras de las subpestañas*/
+font:normal normal 14px Verdana; /*Tamaño y tipografía de las subpestañas*/
+text-transform:uppercase; /*Para que esté en mayúsculas, sino borrad la línea*/
+letter-spacing: 2px; /*Espaciado entre caracteres, si no queréis borrad la línea*/
+}
+.search-box{ /*Para cambiar la apariencia de la cajita*/
+width:15%; /*Tamaño de la caja entera*/
+text-align:center;
+padding:7px 0; /*Altura de cajita*/
+margin-left: 50px;
+color:#333333; /*Color de las letras cuando escriba el usuario*/
+border:1px solid #dac7c3; /*Tamaño, estilo y color del borde, si no queremos borde borrar la línea*/
+background:#ffffff; /*Color de fondo*/
+font: normal normal 13px Arial; /*Tamaño y tipografia de la palabra BUSCAR (o la que hayas escrito)*/
+border-radius:20px; /*Bordes redondeados*/
+}
+#buscar-top{ /*Para colocarla bien dentro de nuestra barra*/
+margin-top: 15px; /*Variar para colocarlo bien de altura*/
+margin-right: -10%; /*Variar para colocarlo bien a lo ancho*/
+}
+
+/***** Barra Inferior *****/
+#barra-inferior ul {
+list-style-type: none;
+padding-left: 10% ;
+background-color: #8db7c9;
+position: fixed;
+bottom: 0;
+width: 100%;
+}
+#barra-inferior li a {
+display: block;
+color: white;
+text-align: center;
+}
+#barra-inferior li a:hover{
+color: #2a1fc6;
+}
+
+/***** Barra Lateral *****/
+#nav{
+height: 100%; /*Anchura de la barra*/
+border-bottom: 1px solid #dac7c3; /*Línea de debajo del menú, si no queréis borrad esta línea*/
+position:fixed; /*Para que la barra se quede fija*/
+z-index:101; /*Para que la barra se quede fija*/
+}
+.cuerporec{
+background: #9a8dc9; /*Color de fondo de la barra*/
+height: 100%;
+margin-top: 33%;
+}
+.cuerporec li a {
+color:#ffffff; /*Color de las letras de las pestañas*/
+font:normal normal 13px Arial; /*Tamaño y tipografía de las pestañas*/
+letter-spacing: 1px; /*Espaciado entre caracteres, si no queréis borrad la línea*/
+padding:20px 10px;
+display:block;
+cursor:pointer;
+}
+.cuerporec li a:hover {
+color: #8b2626; /*Color de las pestañas al pasar el ratón por encima*/
+}
+.cuerporec a{
+text-decoration: none;
+}
+
+/***** Cards *****/
+.card{
+width: 270px;
+height: 440px;
+display: inline-block;
+margin-top: 2px;
+background-color: rgba(78, 164, 174, 0.261);
+margin-left: 25px;
+margin-bottom: 25px;
+}
+.card-img-pelicula{
+width: 250px;
+height: 280px;
+display: block;
+margin-left: auto;
+margin-right: auto;
+margin-top: 5px;
+border-radius: 10%;
+}
+.card-img-usuario{
+width: 250px;
+height: 280px;
+display: block;
+margin-left: auto;
+margin-right: auto;
+margin-top: 5px;
+border-radius: 100%;
+}
+.card-title{
+width: 230px;
+height: 50px;
+text-align: center;
+}
+.btn{
+width: 100px;
+height: 40px;
+align-items: center;
+margin: auto;
+margin-left: 10px;
+margin-right: 4px;
+border-radius: 60%;
+}
