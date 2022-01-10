@@ -12,33 +12,40 @@
         </div>
     @endif
 
-<div>
-    <form action="{{url('/usuarios')}}/{{$usuarios->id}}" method="post">
-        @csrf
-        @method("PUT")
-        <div class="form-group">
-            <label for="nombre">Nombre</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre" value="{{$usuarios->nombre}}">
+    <div class="row">
+            <div class="col-md-12">
+                <div class="card card-default">
+                    <div class="card-header">
+                        <span class="card-title">Actualizar usuario</span>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" action="{{ route('usuarios.update', $usuario->id) }}"  role="form" enctype="multipart/form-data">
+                            {{ method_field('PATCH') }}
+                            @csrf
+
+
+
+                            <div class="box box-info padding-1">
+                                <div class="box-body">
+                                    
+                                    <div class="form-group">
+                                        {{ Form::label('name') }}
+                                        {{ Form::text('name', $usuario->name, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Name']) }}
+                                        {!! $errors->first('name', '<div class="invalid-feedback">:message</p>') !!}
+                                    </div>
+                                    
+                                </div>
+                                <div class="box-footer mt20">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="apellidos">Apellidos</label>
-            <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="apellidos" value="{{$usuarios->apellidos}}">
-        </div>
-        <div class="form-group">
-            <label for="user_name">User-name</label>
-            <input type="text" class="form-control" id="user_name" name="user_name" placeholder="user_name" value="{{$usuarios->user_name}}">
-        </div>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="text" class="form-control" id="email" name="email" placeholder="email" value="{{$usuarios->email}}">
-        </div>
-        <div class="form-group">
-            <label for="contraseña">Contraseña</label>
-            <input type="text" class="form-control" id="contraseña" name="contraseña" placeholder="contraseña" value="{{$usuarios->contraseña}}">
-        </div>
-        <button type="submit" class="btn btn-primary">Guardar</button>
-        <a href="{{url('/usuarios')}}" class="btn btn-secondary">Cancelar</a>
-    </form>
-</div>
 
 @endsection

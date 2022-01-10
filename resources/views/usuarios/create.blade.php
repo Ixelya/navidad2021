@@ -1,9 +1,8 @@
-@extends("layouts.app1")
-
+@extends("general")
 
 @section("contenido")
 
-@if ($errors->any())
+    @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $error)
@@ -13,44 +12,40 @@
         </div>
     @endif
 
-    <h3>Insertar Vuelo </h3>
+ 
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-default">
+                <div class="card-header">
+                    <span class="card-title">Crear usuario</span>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{{ route('usuarios.store') }}"  role="form" enctype="multipart/form-data">
+                        @csrf
 
 
 
+                        <div class="box box-info padding-1">
+                            <div class="box-body">
+                                
+                                <div class="form-group">
+                                    {{ Form::label('name') }}
+                                    {{ Form::text('name', $usuario->name, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Name']) }}
+                                    {!! $errors->first('name', '<div class="invalid-feedback">:message</p>') !!}
+                                </div>
+                                
+                            </div>
+                            <div class="box-footer mt20">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
 
-    <form action="{{route('vuelos.store')}}" method="post">
-        @csrf
-        <div class="form-group">
-            <label for="id">ID</label>
-            <input type="text" class="form-control" id="id" name="id" placeholder="Id">
-        </div>
-        <div class="form-group">
-            <label for="codigo">Codigo</label>
-            <input type="text" class="form-control" id="codigo" name="codigo" placeholder="Codigo">
-        </div>
-        <div class="form-group">
-            <label for="origen">Origen</label>
-            <input type="text" class="form-control" id="origen" name="origen" placeholder="Origen">
-        </div>
-        <div class="form-group">
-            <label for="destino">Destino</label>
-            <input type="text" class="form-control" id="destino" name="destino" placeholder="Destino">
-        </div>
-        <div class="form-group">
-            <label for="fecha">Fecha</label>
-            <input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha">
-        </div>
-        <div class="form-group">
-            <label for="hora">Hora</label>
-            <input type="text" class="form-control" id="hora" name="hora" placeholder="Hora">
-        </div>
-        <div class="form-group">
-            <label for="piloto_id">Piloto ID</label>
-            <input type="text" class="form-control" id="piloto_id" name="piloto_id" placeholder="Piloto_id">
-        </div>
-        <button type="submit" class="btn btn-primary">Guardar</button>
-        <a href="{{url('/vuelos')}}" class="btn btn-secondary">Volver</a>
-    </form>
 
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
 @endsection

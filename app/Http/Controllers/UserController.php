@@ -15,35 +15,42 @@ class UserController extends Controller
 
     public function create()
     {
-        return view('usuarios.create');
+        $usuario = new User();
+        return view('usuarios.create', compact('usuario'));
     }
 
     public function store(Request $request)
     {
-        User::create($request->all());
-        return redirect()->route('usuarios.index');
+        $usuario = User::create($request->all());
+        return redirect()->route('usuarios.index')
+            ->with('success', 'Usuario creado correctamente');
     }
 
-    public function show(User $user)
+    public function show($id)
     {
+        $usuario = User::find($id);
+        return view('usuarios.show', compact('usuario'));
     }
 
-    public function edit(User $user)
+    public function edit($id)
     {
-        $users = User::find($user->id);
-        return view('usuarios.edit', compact('usuarios'));
+        $usuario = User::find($id);
+        return view('usuarios.edit', compact('usuario'));
     }
 
     public function update(Request $request, Users $user)
     {
-        $user = User::find($user->id);
-        $user->update($request->all());
-        return redirect('/usuarios');
+        $usuario = User::find($user->id);
+        $usuario->update($request->all());
+        return redirect()->route('usuarios.index')
+            ->with('success', 'Usuario actualizado correctamente');
     }
 
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        User::find($user->id)->delete();
-        return redirect()->route('usuarios.index');
+        $usuario = User::find($id)->delete();
+
+        return redirect()->route('usuarios.index')
+            ->with('success', 'Usuario borrado correctamente');
     }
 }
