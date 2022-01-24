@@ -7,6 +7,7 @@ use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use User;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -28,11 +29,21 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
-        $request->authenticate();
 
-        $request->session()->regenerate();
+        $credentials = [
+            'email' => $request['email'],
+            'password' => $request['password'],
+        ];
+        
+        if (Auth::attempt($credentials)) {
+            return redirect()->intended(RouteServiceProvider::HOME);
+        }
+        
+        // $request->authenticate();
+       
+        // $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        // return redirect()->intended(RouteServiceProvider::HOME);
     }
 
     /**

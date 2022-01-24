@@ -1,6 +1,6 @@
-@extends("general")
+@extends('layouts.app')
 
-@section("contenido")
+@section('content')
 
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -29,14 +29,37 @@
                             <div class="box-body">
                                 
                                 <div class="form-group">
-                                    {{ Form::label('name') }}
-                                    {{ Form::text('name', $usuario->name, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Name']) }}
-                                    {!! $errors->first('name', '<div class="invalid-feedback">:message</p>') !!}
+                                    <label for="name">Nombre</label>
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="name" value="{{$usuario->name}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="apellidos">Apellidos</label>
+                                    <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="apellidos" value="{{$usuario->apellidos}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="user_name">Username</label>
+                                    <input type="text" class="form-control" id="user_name" name="user_name" placeholder="user_name" value="{{$usuario->user_name}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="text" class="form-control" id="email" name="email" placeholder="email" value="{{$usuario->email}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Contraseña</label>
+                                    <input type="text" class="form-control" id="password" name="password" placeholder="password" value="{{$usuario->password}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="imagen">Imagen</label>
+                                    <select name="imagen" id="imagen" class="form-control">
+                                        <option value="default.jpg">Select an icon</option>
+                                        <option value="azul.jpg">Azul</option>
+                                        <option value="rojo.jpg">Rojo</option>
+                                    </select>
                                 </div>
                                 
                             </div>
                             <div class="box-footer mt20">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Guardar</button>
                             </div>
                         </div>
 

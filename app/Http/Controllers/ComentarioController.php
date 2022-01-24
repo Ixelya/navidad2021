@@ -14,8 +14,20 @@ class ComentarioController extends Controller
      */
     public function index()
     {
-        //
+        $comentarios = Comentario::all();
+        return view('comentarios.index', compact('comentarios'));
     }
+
+    public function getComentarios($idmovie){
+        $comentarios = Comentario::join('users', 'users.id', '=', 'comentarios.id_user')
+                ->where('comentarios.id_pelicula', $idmovie)
+                ->get(['users.user_name', 'comentarios.comentario']);
+            
+        // return response()->json(array('comentarios'=> $comentarios), 200);
+
+        return response()->json($comentarios);
+    }
+
 
     /**
      * Show the form for creating a new resource.

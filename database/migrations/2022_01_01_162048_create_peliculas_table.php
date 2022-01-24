@@ -14,7 +14,7 @@ class CreatePeliculasTable extends Migration
             $table->string('director');
             $table->integer('año');
             $table->longText('sinopsis');
-            $table->string('imagen')->default('not_found.png');
+            $table->string('imagen')->default('default.jpg');
         });
     }
 

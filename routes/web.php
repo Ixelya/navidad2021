@@ -20,24 +20,15 @@ Route::get('/login', function () {
     return view('auth.login');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
 require __DIR__.'/auth.php';
 
 Route::resource('/', PeliculaController::class);
 Route::resource('/usuarios', UserController::class);
 Route::resource('/peliculas', PeliculaController::class);
-Route::resource('/comentario', ComentarioController::class);
-
-Route::get('/perfilpelicula', function () {
-    return view('perfiles.perfilpelicula');
-});
-
-Route::get('/perfilusuario', function () {
-    return view('perfiles.perfilusuario');
-});
+Route::resource('/comentarios', ComentarioController::class);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/comentarios/movie/{idmovie}',  [App\Http\Controllers\ComentarioController::class, 'getComentarios']);
+
+Route::get('/pdf',  [App\Http\Controllers\PeliculaController::class, 'pdf']);

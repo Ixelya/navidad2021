@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -38,9 +39,13 @@ class UserController extends Controller
         return view('usuarios.edit', compact('usuario'));
     }
 
-    public function update(Request $request, Users $user)
+    public function update(Request $request, User $usuario)
     {
-        $usuario = User::find($user->id);
+        $usuario = User::find($usuario->id);
+        // dd($request->imagen);
+
+        $usuario->imagen = $request->imagen;
+
         $usuario->update($request->all());
         return redirect()->route('usuarios.index')
             ->with('success', 'Usuario actualizado correctamente');
@@ -52,5 +57,10 @@ class UserController extends Controller
 
         return redirect()->route('usuarios.index')
             ->with('success', 'Usuario borrado correctamente');
+    }
+
+    public function userdetails()
+    {
+        return "Aqui";
     }
 }

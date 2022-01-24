@@ -1,4 +1,4 @@
-@extends('general')
+@extends('layouts/opipelis/general')
 
 @section('contenido')
 

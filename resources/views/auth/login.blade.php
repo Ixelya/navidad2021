@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.opipelis.general')
 
-@section('content')
+@section('contenido')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card-ghost">
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">

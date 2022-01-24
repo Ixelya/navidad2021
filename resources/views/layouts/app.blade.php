@@ -23,9 +23,15 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
+            <a class="navbar-brand" href="{{ url('/peliculas') }}">
+                {{ config('Peliculas', 'Peliculas') }}
+            </a>
+            <a class="navbar-brand" href="{{ url('/usuarios') }}">
+                {{ config('Usuarios', 'Usuarios') }}
+            </a>
+            <a class="navbar-brand" href="{{ url('/pdf') }}">
+                {{ config('Generar PDF de Peliculas', 'Generar PDF de Peliculas') }}
+            </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -48,7 +54,7 @@
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
                                 </li>
                             @endif
                         @else

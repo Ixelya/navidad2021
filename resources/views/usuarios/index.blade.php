@@ -1,4 +1,4 @@
-@extends("general")
+@extends("layouts/opipelis/general")
 
 @section("contenido")
 
@@ -11,14 +11,14 @@
         } );
     } );
     </script>
-
+ 
     @if(count($usuarios)>0)
 
         @foreach($usuarios as $usuario)
             <div class="card" data-id='{{$usuario->id}}'>
-                <a href="{{ route('usuarios.show',$usuario->id) }}"><img class="card-img-usuario" src='{{$usuario->imagen}}' alt="Card image cap"></a>
+                <img class="card-img-usuario" src="/imapeli/{{$usuario->imagen}}" alt="Card image cap">
                 <div class="card-body">
-                    <a href="{{ route('usuarios.show',$usuario->id) }}"><h5 class="card-title">{{$usuario->user_name}}</h5></a>
+                    <h5 class="card-title">{{$usuario->user_name}}</h5>
                     <form action="{{ route('usuarios.destroy',$usuario->id) }}" method="POST">
                         <a class="btn-align btn-sm btn-warning" href="{{ route('usuarios.edit',$usuario->id) }}">Editar</a>
                         @csrf

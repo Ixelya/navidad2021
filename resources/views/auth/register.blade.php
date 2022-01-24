@@ -1,4 +1,4 @@
-@extends('general')
+@extends('layouts.opipelis.general')
 
 @section('contenido')
 <div class="container">
@@ -72,7 +72,15 @@
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
+                                
+                                <ul>Requisitos de contraseña:
+                                    <li>Debe tener de 3 a 5 caracteres
+                                    <li>Un caracter en Mayusculas
+                                    <li>Un caracter en minusculas
+                                    <li>Un digito numerico
+                                    <li>Un simbolo especial
+                                    <li>Un caracter Unicode
+                                </ul>
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
